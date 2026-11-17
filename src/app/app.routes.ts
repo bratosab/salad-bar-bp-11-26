@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Salad } from './salad/salad';
 import { Order } from './order/order';
+import { saladGuard } from './guards/salad-guard';
 
 export const routes: Routes = [
   { path: '', component: Order },
@@ -9,5 +10,5 @@ export const routes: Routes = [
     loadComponent: () => import('./kitchen/kitchen'),
     loadChildren: () => import('./kitchen/kitchen.routes'),
   },
-  { path: 'salad', component: Salad },
+  { path: 'salad', canActivate: [saladGuard], component: Salad },
 ];

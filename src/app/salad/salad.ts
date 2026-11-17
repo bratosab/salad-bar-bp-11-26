@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { OrderService } from '../services/order.service';
 
 @Component({
   imports: [],
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './salad.scss',
   templateUrl: './salad.html',
 })
-export class Salad {}
+export class Salad {
+  protected orderService = inject(OrderService);
+
+}

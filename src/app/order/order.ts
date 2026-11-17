@@ -4,6 +4,8 @@ import { MatButton } from '@angular/material/button';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
+import { OrderService } from '../services/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [ReactiveFormsModule, MatFormField, MatLabel, MatError, MatInput, MatButton],
@@ -13,15 +15,20 @@ import { MatInput } from '@angular/material/input';
 })
 export class Order {
   private formBuilder = inject(FormBuilder);
+  private orderService = inject(OrderService);
+  private router = inject(Router);
 
-  protected orderForm = this.formBuilder.group({
+  protected orderForm = this.formBuilder.nonNullable.group({
     name: ['', Validators.required],
     tel: ['', [Validators.required, Validators.pattern('0[6-7][0-9]{8}')]],
   });
 
   protected onSubmit() {
     if(this.orderForm.valid) {
+      this.orderService.name = this.orderForm.controls.name.value
+      this.orderService.tel = this.orderForm.controls.tel.value
 
+      this.router.navigate(['salad'])
     }
   }
 }
