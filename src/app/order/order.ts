@@ -19,14 +19,14 @@ export class Order {
   private router = inject(Router);
 
   protected orderForm = this.formBuilder.nonNullable.group({
-    name: ['', Validators.required],
-    tel: ['', [Validators.required, Validators.pattern('0[6-7][0-9]{8}')]],
+    name: ['Mike', Validators.required],
+    tel: ['0606060606', [Validators.required, Validators.pattern('0[6-7][0-9]{8}')]],
   });
 
   protected onSubmit() {
     if(this.orderForm.valid) {
-      this.orderService.name = this.orderForm.controls.name.value
-      this.orderService.tel = this.orderForm.controls.tel.value
+      this.orderService.name.set(this.orderForm.controls.name.value)
+      this.orderService.tel.set(this.orderForm.controls.tel.value)
 
       this.router.navigate(['salad'])
     }

@@ -1,1 +1,24 @@
-<p>Welcome {{ orderService.name }} ! choose your toppings below :</p>
+<p>Welcome {{ orderService.name() }} ! choose your toppings below :</p>
+
+<div class="toppings-lists">
+  <ul>
+    @for (item of toppings(); track item.id) {
+      <li>{{ item.name }} ({{ item.price | currency: '€' }})</li>
+      <button (click)="saladService.chooseTopping(item)">+1</button>
+    } @empty {
+      <p>Loading toppings...</p>
+    }
+  </ul>
+
+  <div>
+    <p>Total price : {{ saladService.totalPrice() | currency: '€' }}</p>
+    <ul>
+      @for (item of saladService.chosenToppings(); track item.id) {
+        <li>{{ item.name }} ({{ item.price | currency: '€' }})</li>
+        <button (click)="saladService.removeTopping(item.id)">-1</button>
+      } @empty {
+        <p>No ingredients chosen. Add some!</p>
+      }
+    </ul>
+  </div>
+</div>

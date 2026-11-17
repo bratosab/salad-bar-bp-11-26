@@ -1,7 +1,7 @@
-import { Service } from '@angular/core';
+import { Service, signal } from '@angular/core';
 
 @Service()
 export class OrderService {
-    public name = '';
-    public tel = '';
+    public name = signal('');
+    public tel = signal('');
 }
