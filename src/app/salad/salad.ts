@@ -3,9 +3,10 @@ import { OrderService } from '../services/order.service';
 import { SaladService } from '../services/salad.service';
 import { Topping } from '../models/topping.model';
 import { CurrencyPipe } from '@angular/common';
+import { Toppings } from './toppings/toppings';
 
 @Component({
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, Toppings],
   selector: 'app-salad',
   styleUrl: './salad.scss',
   templateUrl: './salad.html',

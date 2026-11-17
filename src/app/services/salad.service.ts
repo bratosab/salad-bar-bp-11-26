@@ -11,6 +11,7 @@ export class SaladService {
     }
 
     private chosenToppingsList = signal<Topping[]>([])
+    
     public totalPrice = computed(() => {
         let total = 0
         this.chosenToppings().forEach(element => {

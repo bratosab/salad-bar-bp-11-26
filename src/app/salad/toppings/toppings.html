@@ -1,1 +1,8 @@
-<p>toppings works!</p>
+<ul>
+  @for (item of toppings(); track item.id) {
+    <li>{{ item.name }} ({{ item.price | currency: '€' }})</li>
+    <button (click)="clickTopping.emit(item)">{{ buttonLabel() }}</button>
+  } @empty {
+    <p>{{ placeholderLabel() }}</p>
+  }
+</ul>
