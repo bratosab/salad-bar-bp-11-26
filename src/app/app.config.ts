@@ -8,6 +8,7 @@ import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { appReducer } from './store/app.reducer';
 import { saladReducer } from './salad/store/salad.reducer';
+import { getToppingsEffect } from './salad/store/salad.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,7 +20,7 @@ export const appConfig: ApplicationConfig = {
       app: appReducer,
       salad: saladReducer
     }),
-    provideEffects(),
+    provideEffects({ getToppingsEffect }),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],

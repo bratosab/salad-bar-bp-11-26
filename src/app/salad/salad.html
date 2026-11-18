@@ -9,7 +9,7 @@
   ></app-toppings>
 
   <div>
-    <p>Total price : {{ saladService.totalPrice() | currency: '€' }}</p>
+    <p>Total price : {{ totalPrice() | currency: '€' }}</p>
     <app-toppings
       [toppings]="chosenToppings()"
       buttonLabel="-1"
