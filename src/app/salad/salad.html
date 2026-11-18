@@ -1,20 +1,20 @@
-<p>Welcome {{ orderService.name() }} ! choose your toppings below :</p>
+<p>Welcome {{ name() }} ! choose your toppings below :</p>
 
 <div class="toppings-lists">
   <app-toppings
     [toppings]="toppings()"
     buttonLabel="+1"
     placeholderLabel="Loading toppings..."
-    (clickTopping)="saladService.chooseTopping($event)"
+    (clickTopping)="chooseTopping($event)"
   ></app-toppings>
 
   <div>
     <p>Total price : {{ saladService.totalPrice() | currency: '€' }}</p>
     <app-toppings
-      [toppings]="saladService.chosenToppings()"
+      [toppings]="chosenToppings()"
       buttonLabel="-1"
       placeholderLabel="No ingredients chosen. Add some!"
-      (clickTopping)="saladService.removeTopping($event.id)"
+      (clickTopping)="removeTopping($event)"
     ></app-toppings>
   </div>
 </div>

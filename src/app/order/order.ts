@@ -6,6 +6,8 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { OrderService } from '../services/order.service';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { SetName, SetTel } from '../store/app.actions';
 
 @Component({
   imports: [ReactiveFormsModule, MatFormField, MatLabel, MatError, MatInput, MatButton],
@@ -15,8 +17,9 @@ import { Router } from '@angular/router';
 })
 export class Order {
   private formBuilder = inject(FormBuilder);
-  private orderService = inject(OrderService);
+  // private orderService = inject(OrderService);
   private router = inject(Router);
+  private store = inject(Store)
 
   protected orderForm = this.formBuilder.nonNullable.group({
     name: ['Mike', Validators.required],
@@ -25,8 +28,11 @@ export class Order {
 
   protected onSubmit() {
     if(this.orderForm.valid) {
-      this.orderService.name.set(this.orderForm.controls.name.value)
-      this.orderService.tel.set(this.orderForm.controls.tel.value)
+      this.store.dispatch(SetName({ name: this.orderForm.controls.name.value }))
+      this.store.dispatch(SetTel({ tel: this.orderForm.controls.tel.value }))
+
+      // this.orderService.name.set(this.orderForm.controls.name.value)
+      // this.orderService.tel.set(this.orderForm.controls.tel.value)
 
       this.router.navigate(['salad'])
     }

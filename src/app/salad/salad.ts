@@ -4,6 +4,10 @@ import { SaladService } from '../services/salad.service';
 import { Topping } from '../models/topping.model';
 import { CurrencyPipe } from '@angular/common';
 import { Toppings } from './toppings/toppings';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.reducer';
+import { SaladState } from './store/salad.reducer';
+import { ChooseTopping, RemoveTopping } from './store/salad.actions';
 
 @Component({
   imports: [CurrencyPipe, Toppings],
@@ -12,16 +16,26 @@ import { Toppings } from './toppings/toppings';
   templateUrl: './salad.html',
 })
 export class Salad implements OnInit {
-
-  protected orderService = inject(OrderService);
   protected saladService = inject(SaladService);
+  private store: Store<{ app: AppState; salad: SaladState }> = inject(Store);
 
-  protected toppings = signal<Topping[]>([])
+  protected name = this.store.selectSignal((state) => state.app.name);
+  protected chosenToppings = this.store.selectSignal((state) => state.salad.chosenToppings);
 
- ngOnInit(): void {
-    this.saladService.getToppings().subscribe(toppings => {
-      console.table(toppings)
-      this.toppings.set(toppings)
-    })
+  protected toppings = signal<Topping[]>([]);
+
+  ngOnInit(): void {
+    this.saladService.getToppings().subscribe((toppings) => {
+      console.table(toppings);
+      this.toppings.set(toppings);
+    });
+  }
+
+  chooseTopping(toppingToAdd: Topping){
+    this.store.dispatch(ChooseTopping({ toppingToAdd }))
+  }
+
+  removeTopping(toppingToRemove: Topping) {
+    this.store.dispatch(RemoveTopping({ toppingToRemove }))
   }
 }
