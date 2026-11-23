@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Salad } from './salad';
+import { provideStore } from '@ngrx/store';
+import { appReducer } from '../store/app.reducer';
+import { saladReducer } from './store/salad.reducer';
 
 describe('Salad', () => {
   let component: Salad;
@@ -8,6 +11,7 @@ describe('Salad', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Salad],
+      providers: [provideStore({ app: appReducer, salad: saladReducer })],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Salad);
