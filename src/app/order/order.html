@@ -1,13 +1,13 @@
-<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()" data-test="order-form">
   <mat-form-field appearance="fill">
     <mat-label>What is your name ?</mat-label>
-    <input matInput type="text" formControlName="name" />
+    <input matInput type="text" formControlName="name" data-test="order-form-name" />
     <mat-error>Vous ne passerez pas !</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>What is your tel ?</mat-label>
-    <input matInput type="text" formControlName="tel" />
+    <input matInput type="text" formControlName="tel" data-test="order-form-tel" />
     @if(orderForm.controls.tel.hasError('required')) {
     <mat-error>Pas de numéro, pas de salad !</mat-error>
     } @else {

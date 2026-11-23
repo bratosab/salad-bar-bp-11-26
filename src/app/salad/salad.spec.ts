@@ -22,4 +22,18 @@ describe('Salad', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render toppings component', () => {
+    const compiled = fixture.nativeElement as HTMLElement
+
+    expect(compiled.querySelectorAll('app-toppings')).toHaveLength(2)
+  })
+
+   it('should display total price message', () => {
+    const compiled = fixture.nativeElement as HTMLElement
+
+    const totalPrice = compiled.querySelector('p[data-test="total-price"]')
+    expect(totalPrice).toBeTruthy()
+    expect(totalPrice?.textContent).toContain("Total price :")
+  })
 });

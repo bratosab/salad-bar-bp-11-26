@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, inject, Service, signal } from '@angular/core';
 import { Topping } from '../models/topping.model';
+import { map } from 'rxjs';
 
 @Service()
 export class SaladService {
