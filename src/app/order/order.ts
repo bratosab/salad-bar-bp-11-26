@@ -22,8 +22,8 @@ export class Order {
   private store = inject(Store)
 
   protected orderForm = this.formBuilder.nonNullable.group({
-    name: ['Mike', Validators.required],
-    tel: ['0606060606', [Validators.required, Validators.pattern('0[6-7][0-9]{8}')]],
+    name: ['', Validators.required],
+    tel: ['', [Validators.required, Validators.pattern('0[6-7][0-9]{8}')]],
   });
 
   protected onSubmit() {
