@@ -1,19 +1,21 @@
 <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" data-test="order-form">
   <mat-form-field appearance="fill">
-    <mat-label>What is your name ?</mat-label>
+    <mat-label i18n>What is your name ?</mat-label>
     <input matInput type="text" formControlName="name" data-test="order-form-name" />
-    <mat-error>Vous ne passerez pas !</mat-error>
+    <mat-error i18n>Vous ne passerez pas !</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>What is your tel ?</mat-label>
+    <mat-label i18n>What is your tel ?</mat-label>
     <input matInput type="text" formControlName="tel" data-test="order-form-tel" />
-    @if(orderForm.controls.tel.hasError('required')) {
-    <mat-error>Pas de numéro, pas de salad !</mat-error>
+    @if (orderForm.controls.tel.hasError('required')) {
+      <mat-error i18n>Pas de numéro, pas de salad !</mat-error>
     } @else {
-    <mat-error>J'ai besoins de ton vrai numéro !</mat-error>
+      <mat-error i18n>J'ai besoins de ton vrai numéro !</mat-error>
     }
   </mat-form-field>
 
-  <button type="submit" matButton="outlined" data-test="order-form-start">Build my salad !</button>
+  <button type="submit" matButton="outlined" data-test="order-form-start" i18n>
+    Build my salad !
+  </button>
 </form>

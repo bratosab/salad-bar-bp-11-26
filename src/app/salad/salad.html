@@ -1,18 +1,23 @@
-<p data-test="welcome">Welcome {{ name() }} ! choose your toppings below :</p>
+<p data-test="welcome" i18n>Welcome {{ name() //i18n(ph="username") }} ! choose your toppings below :</p>
 
 <div class="toppings-lists">
   <app-toppings
     [toppings]="toppings()"
     buttonLabel="+1"
+    i18n-placeholderLabel="placeholder-label-toppings"
     placeholderLabel="Loading toppings..."
     (clickTopping)="chooseTopping($event)"
   ></app-toppings>
 
   <div>
-    <p data-test="total-price">Total price : {{ totalPrice() | currency: '€' }}</p>
+    <p data-test="total-price">
+      <ng-container i18n>Votre prix : </ng-container>{{ totalPrice() | currency: '€' }}
+    </p>
+    <p i18n>Votre salade préferez</p>
     <app-toppings
       [toppings]="chosenToppings()"
       buttonLabel="-1"
+      i18n-placeholderLabel="placeholder-label-chosen-toppings"
       placeholderLabel="No ingredients chosen. Add some!"
       (clickTopping)="removeTopping($event)"
     ></app-toppings>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="5048394923586715736" datatype="html">
+        <source>Bienvenue sur le SaladBar !</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">1,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1627980270642629348" datatype="html">
+        <source>What is your name ?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/order/order.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="907911492201044562" datatype="html">
+        <source>Vous ne passerez pas !</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/order/order.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2870195752729197322" datatype="html">
+        <source>What is your tel ?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/order/order.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3372058380930975620" datatype="html">
+        <source>Pas de numéro, pas de salad !</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/order/order.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="86213049599104632" datatype="html">
+        <source>J&apos;ai besoins de ton vrai numéro !</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/order/order.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1239424562861986106" datatype="html">
+        <source> Build my salad ! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/order/order.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1724093393098842826" datatype="html">
+        <source>Welcome <x id="USERNAME" equiv-text="{{ name() //i18n(ph=&quot;username&quot;) }}"/> ! choose your toppings below :</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/salad/salad.html</context>
+          <context context-type="linenumber">1,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2093439915056721027" datatype="html">
+        <source>Loading toppings...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/salad/salad.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+        <note priority="1" from="description">placeholder-label-toppings</note>
+      </trans-unit>
+      <trans-unit id="161536734952773060" datatype="html">
+        <source>Total price : </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/salad/salad.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9090771158741892970" datatype="html">
+        <source>No ingredients chosen. Add some!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/salad/salad.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+        <note priority="1" from="description">placeholder-label-chosen-toppings</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
