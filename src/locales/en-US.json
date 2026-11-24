@@ -1,5 +1,5 @@
 {
-  "locale": "en-US",
+  "locale": "en",
   "translations": {
     "5048394923586715736": "Welcome to the SaladBar!",
     "1627980270642629348": "What is your name?",
@@ -10,7 +10,8 @@
     "1239424562861986106": " Build my salad! ",
     "1724093393098842826": "Welcome {$USERNAME}! Choose your toppings below:",
     "2093439915056721027": "Loading toppings...",
-    "161536734952773060": "Total price: ",
+    "6564471720318920982": "Total price : ",
+    "846809546056238910": "Your favorite salad",
     "9090771158741892970": "No ingredients chosen. Add some!"
   }
 }
