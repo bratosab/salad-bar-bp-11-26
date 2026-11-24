@@ -25,6 +25,10 @@ export class SaladService {
         return this.chosenToppingsList.asReadonly()
     }
 
+    /**
+     * Choose the users topping and add it to the list of chosen toppings
+     * @param topping The topping to choose
+     */
     chooseTopping(topping: Topping){
         this.chosenToppingsList.update((value: Topping[]) => [...value, topping])
     }

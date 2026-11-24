@@ -10,7 +10,8 @@
     "test:ui": "ng test --ui",
     "test:coverage": "ng test --coverage",
     "api": "ng-openapi",
-    "i18n": "ng extract-i18n --output-path src/locales --format=json"
+    "i18n": "ng extract-i18n --output-path src/locales --format=json",
+    "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "packageManager": "npm@11.19.1",
@@ -35,6 +36,7 @@
     "@angular/cli": "^22.2.7",
     "@angular/compiler-cli": "^22.2.0",
     "@angular/localize": "^22.3.0",
+    "@compodoc/compodoc": "^2.0.0",
     "@vitest/coverage-v8": "^5.1.1",
     "@vitest/ui": "^5.1.0",
     "cypress": "^16.3.0",
