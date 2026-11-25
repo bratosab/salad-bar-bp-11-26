@@ -9,6 +9,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { appReducer } from './store/app.reducer';
 import { saladReducer } from './salad/store/salad.reducer';
 import { getToppingsEffect } from './salad/store/salad.effects';
+import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,10 +19,14 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       router: routerReducer,
       app: appReducer,
-      salad: saladReducer
+      salad: saladReducer,
     }),
     provideEffects({ getToppingsEffect }),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
 };
